@@ -14,6 +14,7 @@
 
 # Environment files
 /.env
+/env/
 
 # Angular CLI and build artefacts
 /.angular-cli.json
@@ -32,3 +33,9 @@ yarn-error.log*
 !.env.example
 
 .idea
+
+./lingo-frontend/dist
+./lingo-frontend/node_modules
+./lingo-frontend/node
+./lingo-frontend/target
+./lingo-frontend/.angular

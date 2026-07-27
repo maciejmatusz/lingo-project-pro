@@ -1,0 +1,8 @@
+version: '5.3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    env_file:
+      - ./env/postgres.env
+    ports:
+      - '5432'
