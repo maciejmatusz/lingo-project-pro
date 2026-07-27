@@ -1,0 +1,254 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "1. Role table",
+        "author": "Maciej Matusz-Duch",
+        "comment": "Create role table",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "role",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "bigint",
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "unique": true
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "role_name",
+                    "type": "varchar(255)",
+                    "constraints": {
+                      "unique": true
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "2. User table",
+        "author": "Maciej Matusz-Duch",
+        "comment": "Create user table",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "user",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "bigint",
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "unique": true
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "username",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "password",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "disabled",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "role_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "foreignKey": {
+                        "name": "fk_user_role",
+                        "columnNames": "role_id",
+                        "referencedTableName": "role",
+                        "referencedColumnNames": "id",
+                        "onDelete": "RESTRICT",
+                        "onUpdate": "RESTRICT"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "3. Project table",
+        "author": "Maciej Matusz-Duch",
+        "comment": "Create project table",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "project",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "bigint",
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "unique": true
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "project_name",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "company_name",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "description",
+                    "type": "varchar(255)"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4. Child project table",
+        "author": "Maciej Matusz-Duch",
+        "comment": "Create child-project table",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "child_project",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "bigint",
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "unique": true
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "child_project_name",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name":"description",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "parent_project_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "foreignKey": {
+                        "name": "fk_parent_project",
+                        "columnNames": "project_id",
+                        "referencedTableName": "project",
+                        "referencedColumnNames": "id",
+                        "onDelete": "RESTRICT"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4. Task table",
+        "author": "Maciej Matusz-Duch",
+        "comment": "Create task table",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "task",
+              "columns": [
+                {
+                  "name": "id",
+                  "type": "bigint",
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "unique": true
+                  }
+                },{
+                  "column" : {
+                    "name": "task_name",
+                    "type": "varchar(255)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "description",
+                    "type": "varchar(255)"
+                  }
+                }
+                ,{
+                  "column" : {
+                    "name": "priority",
+                    "type": "varchar(6)"
+                  }
+                },
+                {
+                  "column" : {
+                    "name": "status",
+                    "type": "varchar(6)"
+                  }
+                }
+                ,{
+                  "column" : {
+                    "name": "child_project_id",
+                    "type": "bigint",
+                    "constraints": {
+                      "foreignKey": {
+                        "name": "fk_task_project",
+                        "columnNames": "child_project_id",
+                        "referencedTableName": "child_project",
+                        "referencedColumnNames": "id"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
