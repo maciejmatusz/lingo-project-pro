@@ -27,5 +27,18 @@ Essentially it will be a jira like app.
 - Docker **29**
 - PostgreSQL **18**
 
+### Database project
+The database consists of eight tables:
+- **languages** → Represents the languages that the company uses.
+- **users** → Represents the users of the system.
+- **roles** → Represents the roles of the system that user can have.
+- **clients** → Represents the clients which the user can work with.
+- **projects** → Represents the projects that the user is working on.
+- **tasks** → Represents the tasks that the user has to do.
+- **task_comments** → Represents the comments that the user could leave on the tasks.
+- **user_project_roles** -> Represents the roles that the user has in the projects.
+
+#### Database schema
+![Database schema](documentation/database.png)
 ### Instructions to run the project
 **TO BE CONTINUED**
