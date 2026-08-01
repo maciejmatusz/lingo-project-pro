@@ -216,13 +216,9 @@
                     "name": "client_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_project_client",
-                        "columnNames": "client_id",
-                        "referencedTableName": "clients",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_project_client",
+                      "referencedTableName": "clients",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -231,13 +227,9 @@
                     "name": "parent_project_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_parent_project",
-                        "columnNames": "parent_project_id",
-                        "referencedTableName": "projects",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_parent_project",
+                      "referencedTableName": "projects",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -285,13 +277,9 @@
                     "name": "project_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_project",
-                        "columnNames": "project_id",
-                        "referencedTableName": "projects",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_task_project",
+                      "referencedTableName": "projects",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -300,13 +288,9 @@
                     "name": "parent_task_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_key",
-                        "columnNames": "parent_task_id",
-                        "referencedTableName": "tasks",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_task_key",
+                      "referencedTableName": "tasks",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -315,28 +299,20 @@
                     "name": "source_language_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task__source_language",
-                        "columnNames": "source_language_id",
-                        "referencedTableName": "languages",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_task_source_language",
+                      "referencedTableName": "languages",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
                 {
-                  "column" : {
+                  "column": {
                     "name": "target_language_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_target_language",
-                        "columnNames": "target_language_id",
-                        "referencedTableName": "languages",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_task_target_language",
+                      "referencedTableName": "languages",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -381,13 +357,9 @@
                     "name": "created_by_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_created_by_user",
-                        "columnNames": "created_by_id",
-                        "referencedTableName": "users",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "fk_task_created_by_user",
+                      "referencedTableName": "users",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -396,13 +368,9 @@
                     "name": "assigned_to_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_assigned_to_user",
-                        "columnNames": "assigned_to_id",
-                        "referencedTableName": "users",
-                        "referencedColumnNames": "id",
-                        "onDelete": "RESTRICT"
-                      }
+                      "foreignKeyName": "k_task_assigned_to_user",
+                      "referencedTableName": "users",
+                      "referencedColumnNames": "id"
                     }
                   }
                 }
@@ -427,26 +395,20 @@
                     "name": "user_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_user_project_role_user",
-                        "columnNames": "user_id",
-                        "referencedTableName": "users",
-                        "referencedColumnNames": "id"
+                      "foreignKeyName": "fk_user_project_role_user",
+                      "referencedTableName": "users",
+                      "referencedColumnNames": "id"
                       }
                     }
-                  }
                 },
                 {
                   "column" : {
                     "name": "project_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_user_project_role_project",
-                        "columnNames": "project_id",
-                        "referencedTableName": "projects",
-                        "referencedColumnNames": "id"
-                      }
+                      "foreignKeyName": "fk_user_project_role_project",
+                      "referencedTableName": "projects",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
@@ -455,12 +417,9 @@
                     "name": "role_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_user_project_role_role",
-                        "columnNames": "role_id",
-                        "referencedTableName": "roles",
-                        "referencedColumnNames": "id"
-                      }
+                      "foreignKeyName": "fk_user_project_role_role",
+                      "referencedTableName": "roles",
+                      "referencedColumnNames": "id"
                     }
                   }
                 }
@@ -517,12 +476,9 @@
                     "name": "user_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_comment_user",
-                        "columnNames": "user_id",
-                        "referencedTableName": "users",
-                        "referencedColumnNames": "id"
-                      }
+                      "foreignKeyName": "fk_task_comment_user",
+                      "referencedTableName": "users",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
