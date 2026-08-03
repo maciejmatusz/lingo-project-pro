@@ -1,14 +1,14 @@
-package lingo.project.pro.lingo_backend.user;
+package lingo.project.pro.lingo_backend.user.entitiy;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigInteger;
 import java.time.Instant;
 
-@Data
 @Entity
+@Getter
 @Table(name = "users")
 public class User {
 
