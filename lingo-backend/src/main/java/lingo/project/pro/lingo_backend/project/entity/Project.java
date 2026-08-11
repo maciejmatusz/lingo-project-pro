@@ -37,4 +37,7 @@ public class Project {
     @CreationTimestamp
     @Column(name = "created_at")
     private Instant createdAt;
+
+    @OneToMany(mappedBy = "project")
+    private List<Task> projectTasks;
 }
