@@ -1,4 +1,4 @@
-package lingo.project.pro.lingo_backend.client.dto;
+package lingo.project.pro.lingo_backend.client.entity;
 
 
 import jakarta.persistence.*;
