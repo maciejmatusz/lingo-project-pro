@@ -4,10 +4,12 @@ package lingo.project.pro.lingo_backend.task.entity;
 import jakarta.persistence.*;
 import lingo.project.pro.lingo_backend.language.entity.Language;
 import lingo.project.pro.lingo_backend.project.entity.Project;
-import lingo.project.pro.lingo_backend.user.entitiy.User;
+import lingo.project.pro.lingo_backend.task_comment.entity.TaskComment;
+import lingo.project.pro.lingo_backend.user.entity.User;
 import lombok.Getter;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Getter
@@ -53,4 +55,12 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "assigned_to_id")
     private User assignedTo;
+
+    @OneToMany(mappedBy = "commentedTask", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<TaskComment> comments;
+
+    @OneToMany(mappedBy = "taskParent", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Task> childrenTasks;
+
+
 }

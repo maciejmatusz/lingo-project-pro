@@ -7,3 +7,6 @@ spring:
     password: ${POSTGRES_PASSWORD}
   liquibase:
     change-log: classpath:db/changelog/changelog.json
+  jpa:
+    hibernate:
+      ddl-auto: validate

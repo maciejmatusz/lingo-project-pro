@@ -3,15 +3,15 @@ package lingo.project.pro.lingo_backend.project.entity;
 import jakarta.persistence.*;
 import lingo.project.pro.lingo_backend.client.entity.Client;
 import lingo.project.pro.lingo_backend.task.entity.Task;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.math.BigInteger;
 import java.time.Instant;
 import java.util.List;
 
-@Getter
 @Entity
+@Getter
 @Table(name = "projects")
 public class Project {
     @Id
@@ -29,7 +29,7 @@ public class Project {
     @JoinColumn(name = "parent_project_id")
     private Project projectParent;
 
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", fetch =  FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Task> projectTasks;
 
     private String description;

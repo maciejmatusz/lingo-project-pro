@@ -4,8 +4,6 @@ package lingo.project.pro.lingo_backend.role.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
-import java.math.BigInteger;
-
 @Getter
 @Entity
 @Table(name = "roles")

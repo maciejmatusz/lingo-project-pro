@@ -6,12 +6,11 @@ import lingo.project.pro.lingo_backend.project.entity.Project;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.math.BigInteger;
 import java.time.Instant;
 import java.util.List;
 
-@Getter
 @Entity
+@Getter
 @Table(name = "clients")
 public class Client {
 
@@ -25,7 +24,7 @@ public class Client {
     @Column(name = "contact_email")
     private String contactEmail;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Project> projects;
 
     @Column(name = "tax_id")

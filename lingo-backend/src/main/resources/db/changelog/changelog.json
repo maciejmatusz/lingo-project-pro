@@ -462,12 +462,9 @@
                     "name": "task_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_comment_task",
-                        "columnNames": "task_id",
-                        "referencedTableName": "tasks",
-                        "referencedColumnNames": "id"
-                      }
+                      "foreignKeyName": "fk_task_comment_task",
+                      "referencedTableName": "tasks",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },
