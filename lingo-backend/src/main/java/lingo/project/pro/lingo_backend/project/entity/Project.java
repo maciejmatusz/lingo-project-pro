@@ -16,7 +16,7 @@ import java.util.List;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "project_name")
     private String projectName;
@@ -30,7 +30,7 @@ public class Project {
     private Project projectParent;
 
     @OneToMany(mappedBy = "project")
-    private List<Task> tasks;
+    private List<Task> projectTasks;
 
     private String description;
 
@@ -38,6 +38,4 @@ public class Project {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    @OneToMany(mappedBy = "project")
-    private List<Task> projectTasks;
 }

@@ -16,7 +16,19 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
+
+    private String title;
+
+    private String description;
+
+    private String priority;
+
+    private String status;
+
+    private Instant dueDate;
+
+    private Instant completedDate;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -33,14 +45,6 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "target_language_id")
     private Language targetLanguage;
-
-    private String description;
-
-    private String priority;
-
-    private String status;
-
-    private Instant dueDate;
 
     @ManyToOne
     @JoinColumn(name = "created_by_id")

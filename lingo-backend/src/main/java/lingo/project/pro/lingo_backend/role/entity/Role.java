@@ -12,7 +12,7 @@ import java.math.BigInteger;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     @Column(name = "role_name")
     private String roleName;

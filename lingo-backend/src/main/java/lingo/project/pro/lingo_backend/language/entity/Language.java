@@ -13,7 +13,7 @@ import java.util.List;
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
 
     private String language_name;
 
