@@ -2,7 +2,10 @@ package lingo.project.pro.lingo_backend.role.entity;
 
 
 import jakarta.persistence.*;
+import lingo.project.pro.lingo_backend.user_project_role.entity.UserProjectRole;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 @Entity
@@ -14,4 +17,7 @@ public class Role {
 
     @Column(name = "role_name")
     private String roleName;
+
+    @OneToMany(mappedBy = "role")
+    private List<UserProjectRole> userProjectRoles;
 }

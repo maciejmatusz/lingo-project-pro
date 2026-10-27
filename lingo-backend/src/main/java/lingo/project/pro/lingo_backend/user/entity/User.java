@@ -3,6 +3,7 @@ package lingo.project.pro.lingo_backend.user.entity;
 import jakarta.persistence.*;
 import lingo.project.pro.lingo_backend.task.entity.Task;
 import lingo.project.pro.lingo_backend.task_comment.entity.TaskComment;
+import lingo.project.pro.lingo_backend.user_project_role.entity.UserProjectRole;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -28,8 +29,8 @@ public class User {
     private Boolean isActive;
 
     @CreationTimestamp
-    @Column(updatable = false)
-    private Instant created_at;
+    @Column(updatable = false,name = "created_at")
+    private Instant createdAt;
 
     @OneToMany(mappedBy = "createdBy")
     private List<Task> createdTasks;
@@ -39,4 +40,7 @@ public class User {
 
     @OneToMany(mappedBy = "commentingUser")
     private List<TaskComment> taskComments;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserProjectRole>  userProjectRoles;
 }

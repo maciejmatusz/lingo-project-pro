@@ -368,7 +368,7 @@
                     "name": "assigned_to_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKeyName": "k_task_assigned_to_user",
+                      "foreignKeyName": "fk_task_assigned_to_user",
                       "referencedTableName": "users",
                       "referencedColumnNames": "id"
                     }

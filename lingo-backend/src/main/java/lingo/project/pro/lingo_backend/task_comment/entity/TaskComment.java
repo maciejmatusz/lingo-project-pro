@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lingo.project.pro.lingo_backend.task.entity.Task;
 import lingo.project.pro.lingo_backend.user.entity.User;
 import lombok.Getter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
 
@@ -19,14 +20,15 @@ public class TaskComment {
 
     private String comment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User commentingUser;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task commentedTask;
 
-    @Column(name = "created_at")
+    @CreationTimestamp
+    @Column(updatable = false, name = "created_at")
     private Instant createdAt;
 }
