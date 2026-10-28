@@ -1,0 +1,9 @@
+**/target
+**/node_modules
+**/node
+lingo-frontend/dist
+.angular
+.git
+.gitignore
+.idea
+env
