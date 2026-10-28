@@ -10,6 +10,17 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
+  application:
+    build: .
+    container_name: lingo_app
+    env_file: [env/postgres.env]
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+    ports: ["8080:8080"]
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   postgres-data:
