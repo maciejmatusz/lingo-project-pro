@@ -38,7 +38,7 @@ public class Project {
     private String description;
 
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(updatable = false,name = "created_at")
     private Instant createdAt;
 
 }
