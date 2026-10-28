@@ -368,7 +368,7 @@
                     "name": "assigned_to_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKeyName": "k_task_assigned_to_user",
+                      "foreignKeyName": "fk_task_assigned_to_user",
                       "referencedTableName": "users",
                       "referencedColumnNames": "id"
                     }
@@ -462,12 +462,9 @@
                     "name": "task_id",
                     "type": "bigint",
                     "constraints": {
-                      "foreignKey": {
-                        "name": "fk_task_comment_task",
-                        "columnNames": "task_id",
-                        "referencedTableName": "tasks",
-                        "referencedColumnNames": "id"
-                      }
+                      "foreignKeyName": "fk_task_comment_task",
+                      "referencedTableName": "tasks",
+                      "referencedColumnNames": "id"
                     }
                   }
                 },

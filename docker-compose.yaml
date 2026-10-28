@@ -4,7 +4,7 @@ services:
     container_name: 'lingo_db'
     image: 'postgres:latest'
     env_file:
-      - ./env/postgrest.env
+      - env/postgres.env
     ports:
       - '1506:5432'
     volumes:
