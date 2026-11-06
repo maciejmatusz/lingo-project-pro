@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class ProjectJpaRepositoryAdapter implements ProjectRepository {
     }
 
     @Override
-    public Project getProjectById(long id) {
-        return projectJpaRepository.getReferenceById(id);
+    public Optional<Project> getProjectById(long id) {
+        return projectJpaRepository.findById(id);
     }
 
     @Override
