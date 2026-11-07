@@ -29,7 +29,7 @@ public class User {
     private Boolean isActive;
 
     @CreationTimestamp
-    @Column(updatable = false,name = "created_at")
+    @Column(updatable = false, name = "created_at")
     private Instant createdAt;
 
     @OneToMany(mappedBy = "createdBy")
@@ -42,5 +42,5 @@ public class User {
     private List<TaskComment> taskComments;
 
     @OneToMany(mappedBy = "user")
-    private List<UserProjectRole>  userProjectRoles;
+    private List<UserProjectRole> userProjectRoles;
 }
